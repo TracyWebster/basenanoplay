@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'BaseNanoPlay',
     short_name: 'BaseNanoPlay',
-    description: '用户低成本参与链上游戏并记录数据行为',
+    description: 'Low-cost onchain gaming with data tracking',
     start_url: '/',
     display: 'standalone',
     background_color: '#000000',

@@ -69,17 +69,17 @@ export default function Home() {
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-2">BaseNanoPlay</h1>
         <p className="text-center text-gray-300 mb-8">
-          超低成本链上游戏 - 0.000001 ETH/次
+          Ultra-Low Cost Onchain Game - 0.000001 ETH per play
         </p>
 
         <div className="bg-blue-800/30 rounded-lg p-6 mb-6 border border-blue-500/30">
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <p className="text-gray-400 text-sm">奖池</p>
+              <p className="text-gray-400 text-sm">Prize Pool</p>
               <p className="text-2xl font-bold text-yellow-400">{pot} ETH</p>
             </div>
             <div>
-              <p className="text-gray-400 text-sm">总游戏次数</p>
+              <p className="text-gray-400 text-sm">Total Plays</p>
               <p className="text-2xl font-bold">{totalPlays}</p>
             </div>
           </div>
@@ -87,11 +87,11 @@ export default function Home() {
           {isConnected && (
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-blue-500/30">
               <div>
-                <p className="text-gray-400 text-sm">你的次数</p>
+                <p className="text-gray-400 text-sm">Your Plays</p>
                 <p className="text-xl font-bold text-green-400">{userPlays}</p>
               </div>
               <div>
-                <p className="text-gray-400 text-sm">你的花费</p>
+                <p className="text-gray-400 text-sm">Your Spent</p>
                 <p className="text-xl font-bold text-orange-400">{userSpent} ETH</p>
               </div>
             </div>
@@ -99,12 +99,12 @@ export default function Home() {
         </div>
 
         <div className="bg-white/10 rounded-lg p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4">游戏规则</h2>
+          <h2 className="text-xl font-bold mb-4">How to Play</h2>
           <ul className="space-y-2 text-gray-300">
-            <li>• 每次游戏 0.000001 ETH</li>
-            <li>• 10% 概率赢得整个奖池</li>
-            <li>• 10秒冷却时间</li>
-            <li>• 所有数据上链，完全透明</li>
+            <li>• Each play costs 0.000001 ETH</li>
+            <li>• 10% chance to win the entire prize pool</li>
+            <li>• 10 seconds cooldown between plays</li>
+            <li>• All data stored onchain, fully transparent</li>
           </ul>
         </div>
 
@@ -114,18 +114,18 @@ export default function Home() {
               onClick={() => connect({ connector: injected() })}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-colors"
             >
-              连接钱包开始游戏
+              Connect Wallet to Start
             </button>
           ) : (
             <>
               <div className="bg-white/5 rounded-lg p-3 text-center text-sm">
-                <span className="text-gray-400">已连接: </span>
+                <span className="text-gray-400">Connected: </span>
                 <span className="font-mono">{address?.slice(0, 6)}...{address?.slice(-4)}</span>
                 <button
                   onClick={() => disconnect()}
                   className="ml-4 text-red-400 hover:text-red-300"
                 >
-                  断开
+                  Disconnect
                 </button>
               </div>
               <button
@@ -133,14 +133,14 @@ export default function Home() {
                 disabled={isPending}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white font-bold py-4 px-6 rounded-lg transition-colors"
               >
-                {isPending ? '交易中...' : '开始游戏 (0.000001 ETH)'}
+                {isPending ? 'Processing...' : 'Play Now (0.000001 ETH)'}
               </button>
             </>
           )}
         </div>
 
         <div className="mt-8 text-center text-sm text-gray-400">
-          <p>合约地址: {CONTRACT_ADDRESS}</p>
+          <p>Contract: {CONTRACT_ADDRESS}</p>
           <p className="mt-2">Base Mainnet</p>
         </div>
       </div>
